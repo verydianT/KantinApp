@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "../style";
 
-const FeaturedCard1 = ({ img, name, harga, addToCart, qty }) => (
+const FeaturedCard2 = ({ img, name, harga, addToCart, deleteFromCard, qty }) => (
   <div
     className={`flex flex-row h-[100px] w-[400px] m-3 sm:m-2 rounded-xl border-2`}
   >
@@ -16,6 +16,15 @@ const FeaturedCard1 = ({ img, name, harga, addToCart, qty }) => (
         {`Rp. ${harga} ${qty ? `x ${qty}` : ""}`}
       </p>
     </div>
+    <button
+      className={`${styles.flexCenter} ml-5 relative`}
+      onClick={deleteFromCard}
+    >
+        <svg xmlns="http://www.w3.org/2000/svg" fill="white" viewBox="0 0 24 24" stroke-width="1.5" stroke="red" class="w-[40px] h-[40px] relative">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15 12H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+
+    </button>
     <button
       className={`${styles.flexCenter} mr-5 relative`}
       onClick={addToCart}
@@ -38,4 +47,4 @@ const FeaturedCard1 = ({ img, name, harga, addToCart, qty }) => (
   </div>
 );
 
-export default FeaturedCard1;
+export default FeaturedCard2;
