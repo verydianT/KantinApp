@@ -9,7 +9,6 @@ const Rekomendasi = () => {
           <div className={`${styles.paddingX} ${styles.flexCenter}`}>
             <div className={`${styles.boxWidth}`}>
               <Navbar/>
-              <Cart/>
             </div>
           </div>
     

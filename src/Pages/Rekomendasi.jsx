@@ -1,38 +1,55 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { data3 } from "../constants";
+import { Cart, FeaturedCard1 } from '../Component';
 import styles from '../style';
 
-const FeatureCard = ({ img, name, harga }) => (
-    <div className={`flex flex-row h-[100px] w-[400px] m-3 sm:m-2 rounded-xl border-2`}>
-      <div className={`${styles.flexCenter} w-[86px] bg-blue-100 rounded-l-lg`}>
-        <img src={img} alt="food" className="w-[70%] h-[70%] object-contain" />
-      </div>
-      <div className="flex-1 flex flex-col justify-center ml-5">
-        <h4 className="font-poppins font-semibold text-white text-[18px] leading-[23.4px] mb-1">
-          {name}
-        </h4>
-        <p className="font-poppins font-normal text-white text-[16px] leading-[24px]">
-          {harga}
-        </p>
-      </div>
-      <div className={`${styles.flexCenter} mr-5`}>
-        <svg xmlns="http://www.w3.org/2000/svg" fill="white" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-[40px] h-[40px]">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
-        </svg>
-      </div>
-    </div>
-);
-
 const Rekomendasi_1 = () => {
-    const [data, setData] = useState(data3);
-    const filterResult = (item) => {
-        const result = data3.filter((curData) => {
+const [data, setData] = useState(data3);
+const filterResult = (item) => {
+    const result = data3.filter((curData) => {
             return curData.category === item
-        });
-        setData(result);
+    });
+    setData(result);
+}
+
+const [total, setTotal] = useState(0);
+const [purchasedItem, setPurchasedItem] = useState(0);
+const [cart, setCart] = useState([]);
+
+useEffect(() => {
+    setPurchasedItem(cart.reduce((prev, current) => current.amount + prev, 0));
+    setTotal(cart.reduce((prev, current) => current.amount * current.price + prev, 0));
+}, [cart]);
+
+const addToCart = (id) => {
+    const menu = data3.find((e) => e.id === id);
+    const IdCart = cart.find((e) => e.id === id);
+    if (!IdCart) {
+      setCart([
+        ...cart,
+        {
+          id,
+          name: menu.name,
+          category: menu.category,
+          img: menu.img,
+          harga: menu.harga,
+          amount: 1,
+        }
+      ]);
+    } else {
+      increaseCartAmount(id);
     }
+};
+
+const increaseCartAmount = (id) => {
+    setCart(
+      cart.map((x) => (x.id === id ? { ...x, amount: x.amount + 1 } : x))
+    );
+};
+
 return (
 <>
+    <Cart totalItem={purchasedItem}/>
     <div id="rekomendasi" className={`${styles.flexCenter} flex-col relative`}>
         <div className={`${styles.flexCenter} flex-row flex-wrap mb-5`}>
             <div className={`flex-1 flex justify-center items-center flex-row m-3`} >
@@ -65,7 +82,7 @@ return (
         
         <div className={`${styles.boxHeight2} flex flex-wrap justify-center relative z-[1]`}>
         {data.map((dataFood) => (
-            <FeatureCard key={dataFood.id} {...dataFood}/>
+            <FeaturedCard1 key={dataFood.id} {...dataFood} addToCart={() => addToCart(dataFood.id)}/>
         ))}
         </div>
     </div>
