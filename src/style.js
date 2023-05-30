@@ -1,7 +1,7 @@
 const styles = {
     boxWidth: "xl:max-w-[1280px] w-full",
-    boxHeight: "overflow-y-auto h-[630px] md:h-full",
-    boxHeight2: "overflow-y-auto h-[630px]",
+    boxHeight: "overflow-y-auto h-[580px] md:h-full",
+    boxHeight2: "overflow-y-auto h-[500px] w-[69%] sm:h-[420px] sm:w-[81%]",
   
     heading2: "font-poppins font-semibold xs:text-[48px] text-[40px] text-white xs:leading-[76.8px] leading-[66.8px] w-full",
     paragraph: "font-poppins font-normal text-dimWhite text-[18px] leading-[30.8px]",

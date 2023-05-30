@@ -1,7 +1,7 @@
 import styles from "../style";
 import { data } from "../constants";
 import Card from "../Component/Card";
-import { Navbar, Cart } from "../Component";
+import { Navbar } from "../Component";
 import { useSelector } from "react-redux";
 
 const Home = () => {
@@ -12,7 +12,6 @@ const Home = () => {
         <div className={`${styles.paddingX} ${styles.flexCenter}`}>
           <div className={`${styles.boxWidth}`}>
             <Navbar />
-            <Cart totalItem={total_item} />
           </div>
         </div>
 

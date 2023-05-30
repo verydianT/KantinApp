@@ -3,10 +3,10 @@ import styles from "../style";
 
 const FeaturedCard1 = ({ img, name, harga, addToCart, qty }) => (
   <div
-    className={`flex flex-row h-[100px] w-[400px] m-3 sm:m-2 rounded-xl border-2`}
+    className={`flex flex-row h-[75px] w-[320px] m-3 sm:m-2 rounded-xl border-2 hover:bg-gradient-to-bl hover:from-gray-400 hover:via-gray-600 hover:to-blue-800`}
   >
     <div className={`${styles.flexCenter} w-[86px] bg-blue-100 rounded-l-lg`}>
-      <img src={img} alt="food" className="w-[70%] h-[70%] object-contain" />
+      <img src={img} alt="food" className="w-[80%] h-[80%] rounded-full object-contain" />
     </div>
     <div className="flex-1 flex flex-col justify-center ml-5">
       <h4 className="font-poppins font-semibold text-white text-[18px] leading-[23.4px] mb-1">
@@ -17,7 +17,7 @@ const FeaturedCard1 = ({ img, name, harga, addToCart, qty }) => (
       </p>
     </div>
     <button
-      className={`${styles.flexCenter} mr-5 relative`}
+      className={`${styles.flexCenter} relative`}
       onClick={addToCart}
     >
       <svg

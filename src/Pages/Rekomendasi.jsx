@@ -8,7 +8,6 @@ import { addProductCart } from "../Redux/productSlice";
 const Rekomendasi_1 = () => {
   const dispatch = useDispatch();
   const [data, setData] = useState(data3);
-
   const { total_item } = useSelector((state) => state.productCart);
 
   const filterResult = (item) => {
@@ -21,18 +20,10 @@ const Rekomendasi_1 = () => {
   return (
     <>
       <Cart totalItem={total_item} />
-      <div
-        id="rekomendasi"
-        className={`${styles.flexCenter} flex-col relative`}
-      >
-        <div className={`${styles.flexCenter} flex-row flex-wrap mb-5`}>
-          <div
-            className={`flex-1 flex justify-center items-center flex-row m-3`}
-          >
-            <button
-              className="font-semibold xs:text-[40.89px] text-[30.89px] xs:leading-[53.16px] leading-[43.16px] text-white"
-              onClick={() => setData(data3)}
-            >
+      <div id="rekomendasi" className={`flex justify-center items-center flex-col`}>
+          <div className={`flex flex-row justify-center items-center m-0 sm:m-3`}>
+            <button className="font-semibold xs:text-[40.89px] text-[30.89px] xs:leading-[53.16px] leading-[43.16px] mx-3 sm:mx-5 text-white"
+              onClick={() => setData(data3)}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -48,42 +39,23 @@ const Rekomendasi_1 = () => {
                 />
               </svg>
             </button>
-          </div>
-          <div
-            className={`flex-1 flex justify-center items-center flex-row m-3`}
-          >
             <button
-              className="font-semibold xs:text-[40.89px] text-[30.89px] xs:leading-[53.16px] leading-[43.16px] text-white"
-              onClick={() => filterResult("makanan")}
-            >
+              className="font-semibold xs:text-[40.89px] text-[25px] xs:leading-[53.16px] leading-[43.16px] mx-3 sm:mx-5 text-white underline"
+              onClick={() => filterResult("makanan")}>
               Makanan
             </button>
-          </div>
-          <div
-            className={`flex-1 flex justify-center items-center flex-row m-3`}
-          >
             <button
-              className="font-semibold xs:text-[40.89px] text-[30.89px] xs:leading-[53.16px] leading-[43.16px] text-white"
-              onClick={() => filterResult("minuman")}
-            >
+              className="font-semibold xs:text-[40.89px] text-[25px] xs:leading-[53.16px] leading-[43.16px] mx-3 sm:mx-5 text-white underline"
+              onClick={() => filterResult("minuman")}>
               Minuman
             </button>
-          </div>
-          <div
-            className={`flex-1 flex justify-center items-center flex-row m-3`}
-          >
             <button
-              className="font-semibold xs:text-[40.89px] text-[30.89px] xs:leading-[53.16px] leading-[43.16px] text-white"
-              onClick={() => filterResult("cemilan")}
-            >
+              className="font-semibold xs:text-[40.89px] text-[25px] xs:leading-[53.16px] leading-[43.16px] mx-3 sm:mx-5 text-white underline"
+              onClick={() => filterResult("cemilan")}>
               Cemilan
             </button>
           </div>
-        </div>
-
-        <div
-          className={`${styles.boxHeight2} flex flex-wrap justify-center relative z-[1]`}
-        >
+        <div className={`${styles.boxHeight2} flex flex-wrap justify-center`}>
           {data.map((dataFood) => (
             <FeaturedCard1
               key={dataFood.id}

@@ -16,7 +16,7 @@ const Navbar = () => {
         {navLinks.map((nav, index) => (
           <li
             key={nav.id}
-            className={`font-normal font-poppins cursor-pointer text-[16px] ${index === navLinks.length - 1 ? `mr-0` : `mr-10`} text-white`}
+            className={`font-semibold font-poppins cursor-pointer text-[16px] ${index === navLinks.length - 1 ? `mr-0` : `mr-10`} text-white`}
           >
             <Link to={nav.link}>
               <a href={`#${nav.id}`}>
@@ -32,8 +32,8 @@ const Navbar = () => {
               alt="menu" className="w-[28px] h-[28px] object-contain"
               onClick={() => setToggle((prev) => !prev)}
           />
-          <div className={`${toggle ? 'flex' : 'hidden'} p-6 bg-gradient-to-r from-zinc-700 from-50% to-zinc-900
-          absolute top-0 right-10 mx-4 my-2 h-[70px] rounded-xl sidebar`}
+          <div className={`${toggle ? 'flex' : 'hidden'} p-6
+          absolute top-0 right-10 my-1 h-[70px] rounded-xl sidebar`}
           >
               <ul className='list-none flex flex-row'>
                 {navLinks.map((nav, index) => (
@@ -42,7 +42,7 @@ const Navbar = () => {
                     className={`font-normal font-poppins cursor-pointer text-[16px] ${index === navLinks.length - 1 ? `mr-0` : `mb-4`} text-white`}
                   >
                     <Link to={nav.link}>
-                      <a href={`#${nav.id}`} className="mx-5">
+                      <a href={`#${nav.id}`} className="mx-2 underline">
                         {nav.title}
                       </a>
                     </Link>
