@@ -13,8 +13,14 @@ export const navLinks = [
     link: "/Rekomendasi",
   },
   {
+    id: "toko",
+    title: "Toko",
+    link: "/Toko",
+  },
+  {
     id: "Chat GPT",
     title: "Try Chat GPT",
+    link: "/ChatGPT",
   },
 ];
 
