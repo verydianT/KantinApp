@@ -25,6 +25,7 @@ import people02 from "./people02.png";
 import people03 from "./people03.png";
 import Untitled1 from "./Untitled1.png";
 import Untitled2 from "./Untitled2.png";
+import kantin from "./Kantin.png";
 
 export {
   airbnb,
@@ -54,4 +55,5 @@ export {
   people03,
   Untitled1,
   Untitled2,
+  kantin,
 };

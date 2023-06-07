@@ -1,5 +1,5 @@
 import { useState} from 'react'
-import { close, menu, logo } from "../assets";
+import { close, menu, logo, kantin } from "../assets";
 import { navLinks } from '../constants';
 import { Link } from 'react-router-dom';
 
@@ -9,7 +9,7 @@ const Navbar = () => {
   return (
     <nav className='w-full flex py-6 justify-between items-center navbar'>
       <Link to="/">
-      <img src={logo} alt="Kantin Pintar" className="w-[124px] h-[32px] sm:flex hidden"/>
+      <img src={kantin} alt="Kantin Pintar" className="w-[70px] h-[70px] object-contain sm:w-[80px] sm:h-[80px]"/>
       </Link>
 
       <ul className='list-none sm:flex hidden justify-end items-center flex-1'>
@@ -27,15 +27,15 @@ const Navbar = () => {
         ))}
       </ul>
 
-      <div className="sm:hidden flex flex-1 justify-start items-center">
+      <div className="sm:hidden flex flex-1 justify-end items-center">
           <img src={toggle ? close : menu}
               alt="menu" className="w-[28px] h-[28px] object-contain"
               onClick={() => setToggle((prev) => !prev)}
           />
-          <div className={`${toggle ? 'flex' : 'hidden'} p-6
-          absolute top-0 right-10 my-1 h-[70px] rounded-xl sidebar`}
+          <div className={`${toggle ? 'flex' : 'hidden'} p-4
+          absolute top-0 right-10 mt-5 h-[70px] rounded-xl sidebar`}
           >
-              <ul className='list-none flex flex-row'>
+              <ul className='list-none flex flex-row mt-2'>
                 {navLinks.map((nav, index) => (
                   <li
                     key={nav.id}
